@@ -1,0 +1,81 @@
+<html lang="en">
+  	<head>
+	    <script> 
+	      alert("Greetings!" + "\n" + "TrY YouR LucK");
+	    </script>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>GUESS the Buton</title>
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+	    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+	    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  	</head>
+	<body>
+		<header>
+			<div class = "text-center">
+				<br>
+				<form name="randButonForm">
+				    <input type="text" id="boxNr" name="box" />
+				    <input type="button" value="Random Number!" onclick="Random();" />
+				    	<small id = "helperHint" class = "form-text text-muted"> Click here first!</small>
+					</input>
+				</form>
+			</div>
+		</header>
+
+		<main>
+			<div class = "text-center">
+				<div class="form-group">
+                  <small id = "helperHint" class = "form-text text-muted"> Guess which button is the LUCKY one!</small>
+                </div>
+			</div>
+		</main>
+
+		<footer>
+			<div class = "text-center">
+				<div class="form-group">
+                  <button type="button" id = "b0"  onclick="Alert0();" />Button 1</button>
+                  <button type="button" id = "b1"  onclick="Alert1();" />Button 2</button>
+                  <button type="button" id = "b2"  onclick="Alert2();" />Button 3</button>
+                </div>
+			</div>
+		</footer>
+		
+
+	<script>
+
+		function Random() {
+	        var randomNrGenerator = Math.floor(Math.random() * 10000);
+	        document.getElementById('boxNr').value = randomNrGenerator;
+	        var guessButton = Math.floor(Math.random() * 3);
+   	 		document.getElementById('b'+ guessButton).value = randomNrGenerator;
+   	 	}
+
+   	 	function Alert0() {
+   	 		if (document.getElementById('b0').value == document.getElementById('boxNr').value) {
+   	 			alert('JackPot' + "\n" + "Lucky number = " + document.getElementById('b0').value);
+   	 		} else {
+   	 			alert('Try Again');
+   	 		}
+   	 		return false;
+   	 	}
+
+   	 	function Alert1() {
+   	 		if (document.getElementById('b1').value == document.getElementById('boxNr').value) {
+   	 			alert('JackPot' + "\n" + "Lucky number = " + document.getElementById('b1').value);
+   	 		} else {
+   	 			alert('Try Again');
+   	 		}
+   	 	}
+
+   	 	function Alert2() {
+   	 		if (document.getElementById('b2').value == document.getElementById('boxNr').value) {
+   	 			alert('JackPot' + "\n" + "Lucky number = " + document.getElementById('b2').value);
+   	 		} else {
+   	 			alert('Try Again');
+   	 		}
+   	 	}
+	</script>
+
+	</body>
+</html>
