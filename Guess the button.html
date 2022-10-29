@@ -1,7 +1,7 @@
 <html lang="en">
   	<head>
 	    <script> 
-	      alert("Greetings!" + "\n" + "TrY YouR LucK");
+	      alert("Greetings!" + "\n" + "Try Your LucK");
 	    </script>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,71 +11,52 @@
 	    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   	</head>
 	<body>
-		<header>
-			<div class = "text-center">
+		<header><br>
+			<div class="text-center">
 				<br>
 				<form name="randButonForm">
-				    <input type="text" id="boxNr" name="box" />
-				    <input type="button" value="Random Number!" onclick="Random();" />
-				    	<small id = "helperHint" class = "form-text text-muted"> Click here first!</small>
-					</input>
+					<input type="text" id="boxNr" size="35" name="box" placeholder="Press on 'Number Randomizer' first...">
+					<button type="button" class="btn btn-primary" onclick="Random();">Number Randomizer</button>
+					<small id="helperHint" class="form-text text-muted"> Click here first!</small>
 				</form>
 			</div>
 		</header>
 
 		<main>
-			<div class = "text-center">
+			<div class="text-center">
 				<div class="form-group">
-                  <small id = "helperHint" class = "form-text text-muted"> Guess which button is the LUCKY one!</small>
-                </div>
+					<small id="helperHint" class="form-text text-muted"> Guess which button is the LUCKY one!</small>
+				</div>
 			</div>
 		</main>
 
 		<footer>
-			<div class = "text-center">
-				<div class="form-group">
-                  <button type="button" id = "b0"  onclick="Alert0();" />Button 1</button>
-                  <button type="button" id = "b1"  onclick="Alert1();" />Button 2</button>
-                  <button type="button" id = "b2"  onclick="Alert2();" />Button 3</button>
-                </div>
+			<div class="text-center">
+				<div class="form-group"><br>
+					<button type="button" class="btn btn-outline-danger" id="b0" onclick="Alert(id)">Button 1</button>
+					<button type="button" class="btn btn-outline-success" id="b1" onclick="Alert(id)">Button 2</button>
+					<button type="button" class="btn btn-outline-warning" id="b2" onclick="Alert(id)">Button 3</button>
+				</div>
 			</div>
-		</footer>
-		
+		</footer><br>
+		<div class="text-center" id="result"></div>
+		<script>
 
-	<script>
+			function Random() {
+				var randomNrGenerator = Math.floor(Math.random() * 10000000);
+				document.getElementById('boxNr').value = randomNrGenerator;
+				var guessButton = Math.floor(Math.random() * 3);
+				document.getElementById('b' + guessButton).value = randomNrGenerator;
+			}
 
-		function Random() {
-	        var randomNrGenerator = Math.floor(Math.random() * 10000);
-	        document.getElementById('boxNr').value = randomNrGenerator;
-	        var guessButton = Math.floor(Math.random() * 3);
-   	 		document.getElementById('b'+ guessButton).value = randomNrGenerator;
-   	 	}
-
-   	 	function Alert0() {
-   	 		if (document.getElementById('b0').value == document.getElementById('boxNr').value) {
-   	 			alert('JackPot' + "\n" + "Lucky number = " + document.getElementById('b0').value);
-   	 		} else {
-   	 			alert('Try Again');
-   	 		}
-   	 		return false;
-   	 	}
-
-   	 	function Alert1() {
-   	 		if (document.getElementById('b1').value == document.getElementById('boxNr').value) {
-   	 			alert('JackPot' + "\n" + "Lucky number = " + document.getElementById('b1').value);
-   	 		} else {
-   	 			alert('Try Again');
-   	 		}
-   	 	}
-
-   	 	function Alert2() {
-   	 		if (document.getElementById('b2').value == document.getElementById('boxNr').value) {
-   	 			alert('JackPot' + "\n" + "Lucky number = " + document.getElementById('b2').value);
-   	 		} else {
-   	 			alert('Try Again');
-   	 		}
-   	 	}
-	</script>
-
+			function Alert(buttonId) {
+                if (document.getElementById(buttonId).value == document.getElementById('boxNr').value) {
+                    document.getElementById('result').innerHTML = " " + 'JackPot! ' + document.getElementById(buttonId).value + " is the Lucky number.";
+				} else {
+                    document.getElementById('result').innerHTML = 'Try Again!';
+				}
+				return false;
+			}
+		</script>
 	</body>
 </html>
