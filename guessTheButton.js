@@ -16,8 +16,8 @@
 
 	function Alert(buttonId) {
 		if (document.getElementById(buttonId).value == document.getElementById('boxNr').value) {
-            document.getElementById('result').innerHTML = "JackPot! " + buttonId + " is the Lucky button.";
-            return 0;
+            		document.getElementById('result').innerHTML = "JackPot! " + buttonId + " is the Lucky button.";
+           		return 0;
 		} 
 		if (randomCounter == 0) {
 			document.getElementById('result').innerHTML = "Please click on 'Number Randomizer' first!";
